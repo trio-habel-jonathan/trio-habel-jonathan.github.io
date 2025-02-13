@@ -16,7 +16,6 @@
             height: 100vh;
             z-index: 50;
             transition: all 3s cubic-bezier(0.7, 0, 0.3, 1);
-            padding: 1rem;
         }
         .split-top {
             top: 0;
@@ -36,22 +35,49 @@
         }
         .welcome-text {
             transition: all 0.8s ease-out;
-            max-width: 90%;
-            text-align: center;
-            word-break: break-word;
-            overflow-wrap: break-word;
         }
         .split-active .welcome-text {
             opacity: 0;
             transform: scale(0.8);
         }
-        @media (max-width: 640px) {
-            .welcome-text h3 {
-                font-size: 1.8rem;
-            }
-            .welcome-text p {
-                font-size: 1rem;
-            }
+        .kuromi-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            transition: all 0.8s ease-out;
+        }
+        .kuromi-top-left {
+            top: 20px;
+            left: 10%;
+            transform: rotate(-15deg);
+        }
+        .kuromi-top-right {
+            top: 20px;
+            right: 10%;
+            transform: rotate(15deg);
+        }
+        .kuromi-bottom-left {
+            bottom: 20px;
+            left: 10%;
+            transform: rotate(15deg);
+        }
+        .kuromi-bottom-right {
+            bottom: 20px;
+            right: 10%;
+            transform: rotate(-15deg);
+        }
+        .split-active .kuromi-decoration {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .scroll-reveal.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         #mainContent {
             display: none;
@@ -67,56 +93,89 @@
 <body class="gradient-pink min-h-screen overflow-x-hidden">
     <!-- Split Screen Animation -->
     <div id="splitContainer">
-        <div class="split-screen split-top flex flex-col items-center justify-center text-center px-4">
-            <div class="welcome-text">
-                <h3 class="font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h3>
-                <p class="font-poppins text-pink-400 text-lg md:text-xl">Ada Pesan Untukmu</p>
+        <!-- Split Screens -->
+        <div class="split-screen split-top flex items-center justify-center">
+            <!-- Kuromi Top Left & Right -->
+            <img src="assets/kuromi-gif2.gif" alt="Kuromi" class="kuromi-decoration kuromi-top-left object-contain">
+            <img src="assets/Kuromi-2.png" alt="Kuromi" class="kuromi-decoration kuromi-top-right object-contain">
+            
+            <div class="welcome-text text-center">
+                <h3 class="font-playfair text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h3>
+                <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
             </div>
         </div>
-        <div class="split-screen split-bottom flex flex-col items-center justify-center text-center px-4">
-            <div class="welcome-text">
-                <h3 class="font-playfair text-3xl md:text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h3>
-                <p class="font-poppins text-pink-400 text-lg md:text-xl">Ada Pesan Untukmu</p>
+        <div class="split-screen split-bottom flex items-center justify-center">
+            <div class="welcome-text text-center">
+                <h3 class="font-playfair text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h3>
+                <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
             </div>
+            
+            <!-- Kuromi Bottom Left & Right -->
+            <img src="assets/kuromi1.png" alt="Kuromi" class="kuromi-decoration kuromi-bottom-left object-contain">
+            <img src="assets/kuromi-icegif.gif" alt="Kuromi" class="kuromi-decoration kuromi-bottom-right object-contain">
         </div>
     </div>
 
     <!-- Main Content -->
     <div id="mainContent" class="max-w-md mx-auto px-4 py-8 min-h-screen relative z-0">
-        <div class="text-center mb-12">
+        <!-- Same content as before -->
+        <div class="text-center mb-12 scroll-reveal">
+            <div class="mb-6">
+              
+            </div>
             <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-2 tracking-wide">Semoga Hari Sebi Selalu Baik</h1>
             <p class="font-poppins text-gray-600 text-lg">-----------</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+       
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8 scroll-reveal">
+            <div class="relative">
+                <img src="assets/kuromi-icegif.gif" alt="Valentine" class="w-full h-64 object-contain">
+                <div class="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent"></div>
+            </div>
             <div class="p-6">
                 <h2 class="font-playfair text-2xl font-semibold text-gray-800 mb-4 text-center">Hai Sebrina</h2>
                 <p class="font-poppins text-gray-600 leading-relaxed">
                    Maaf ya Habel buat ini sebisa habel, tapi Habel berusaha untuk membuat sebi bahagia.
-                   Habel minta maaf ya soal kemarin bikin sebi risih dan hal lain, habel nggak bermaksud buat sebi risih.
+                   Habel minta maaf ya soal kemarin bikin sebi risih dan hal lain, habel nggak bermaksud buat sebi risih
+
                 </p>
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8 scroll-reveal">
+            <div class="relative">
+               
+                <div class="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent"></div>
+            </div>
             <div class="p-6">
+                
                 <p class="font-poppins text-gray-600 leading-relaxed">
                   Ini gak seberapa tapi setidaknya bisa habel harap bisa bikin sebi terhibur, banyak kesalahan yang habel lakukan.
                   Berkat Sebrina, Habel jadi belajar untuk maju dan menjadi pribadi lebih baik habel sangat berterima-kasih,
-                  dan habel akan berusaha untuk menjadi lebih baik lagi.
+                  dan habel akan berusaha untuk menjadi lebih baik lagi
                 </p>
             </div>
             <img id="thanksGif" src="assets/kuromi-thanks.gif" alt="Thanks" class="w-full h-64 object-contain">
+
         </div>
 
         <div class="space-y-4">
-            <div class="bg-white rounded-xl p-5 shadow-sm">
-                <p class="font-poppins text-gray-600 italic text-center">If You Need Help I Will Help You :3</p>
+            <div class="bg-white rounded-xl p-5 shadow-sm scroll-reveal">
+                <div class="flex items-center space-x-4">
+                    <div class="w-2 h-2 rounded-full bg-pink-100"></div>
+                    <p class="font-poppins text-gray-600 italic text-center">If You Need Help I Will Help You :3</p>
+                </div>
             </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm">
-                <p class="font-poppins text-gray-600 italic text-center">~From Your Friend Habel~</p>
+            <div class="bg-white rounded-xl p-5 shadow-sm scroll-reveal">
+                <div class="flex items-center space-x-4">
+                    <div class="w-2 h-2 rounded-full bg-pink-100"></div>
+                    <p class="font-poppins text-gray-600 italic text-center">~From Your Friend Habel~</p>
+                </div>
             </div>
         </div>
+
+
     </div>
 
     <script>
@@ -124,16 +183,29 @@
             const splitContainer = document.getElementById('splitContainer');
             const mainContent = document.getElementById('mainContent');
 
+            // Tambahkan kelas split-active setelah 1 detik
             setTimeout(() => {
                 splitContainer.classList.add('split-active');
             }, 2200);
 
+            // Tampilkan konten utama setelah 3 detik (ditambah delay)
             setTimeout(() => {
                 mainContent.classList.add('visible');
             }, 3400);
+
+            // Scroll reveal animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+                document.addEventListener('DOMContentLoaded', () => {
             const thanksGif = document.getElementById('thanksGif');
 
             function restartGif() {
@@ -142,6 +214,7 @@
 
             setInterval(restartGif, 3000); 
         });
+
     </script>
 </body>
 </html>
