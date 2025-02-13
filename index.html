@@ -9,20 +9,15 @@
     <style>
         .gradient-pink {
             background: linear-gradient(135deg, #ffffff 0%, #fdf2f4 100%);
-            min-height: 100vh;
-            position: relative;
-        }
-        .split-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
         }
         .split-screen {
-            position: absolute;
+            position: fixed;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 3s cubic-bezier(0.7, 0, 0.3, 1);
         }
         .split-top {
@@ -42,11 +37,17 @@
             transform: translateY(100%);
         }
         .welcome-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
             transition: all 0.8s ease-out;
+            padding: 0 20px;
         }
         .split-active .welcome-text {
             opacity: 0;
-            transform: scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
         }
         .kuromi-decoration {
             position: absolute;
@@ -91,69 +92,75 @@
             display: none;
             opacity: 0;
             transition: opacity 1s ease-out;
-            padding: 2rem 1rem;
+            padding-top: 4rem;
         }
         #mainContent.visible {
             display: block;
             opacity: 1;
         }
 
-        @media screen and (max-width: 680px) {
-            .split-container {
-                height: 100%;
-                min-height: 100vh;
-            }
-            .split-screen {
-                height: 100%;
-            }
+        @media screen and (max-width: 768px) {
             .kuromi-decoration {
                 width: 80px;
                 height: 80px;
             }
-            .welcome-text {
-                padding: 0 1rem;
-            }
             .welcome-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            .welcome-text p {
+                font-size: 1.1rem;
             }
             #mainContent {
-                padding-top: 1rem;
-                padding-bottom: 4rem;
+                padding-top: 2rem;
             }
         }
 
-        /* Fix for mobile height issues */
         @media screen and (max-height: 600px) {
-            .split-container {
-                min-height: 120vh;
+            .welcome-text h1 {
+                font-size: 1.8rem;
+            }
+            .welcome-text p {
+                font-size: 1rem;
+            }
+            .kuromi-decoration {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
 </head>
-<body class="gradient-pink">
-    <div class="split-container" id="splitContainer">
-        <div class="split-screen split-top flex items-center justify-center">
+<body class="gradient-pink min-h-screen overflow-x-hidden">
+    <!-- Split Screen Animation -->
+    <div id="splitContainer">
+        <!-- Split Screens -->
+        <div class="split-screen split-top">
+            <!-- Kuromi Top Left & Right -->
             <img src="assets/kuromi-gif2.gif" alt="Kuromi" class="kuromi-decoration kuromi-top-left object-contain">
             <img src="assets/Kuromi-2.png" alt="Kuromi" class="kuromi-decoration kuromi-top-right object-contain">
             
             <div class="welcome-text text-center">
-                <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h1>
+                <h1 class="font-playfair font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h1>
                 <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
             </div>
         </div>
-        <div class="split-screen split-bottom flex items-center justify-center">
+        <div class="split-screen split-bottom">
             <div class="welcome-text text-center">
-                <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h1>
+                <h1 class="font-playfair font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h1>
                 <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
             </div>
             
+            <!-- Kuromi Bottom Left & Right -->
             <img src="assets/kuromi1.png" alt="Kuromi" class="kuromi-decoration kuromi-bottom-left object-contain">
             <img src="assets/kuromi-icegif.gif" alt="Kuromi" class="kuromi-decoration kuromi-bottom-right object-contain">
         </div>
     </div>
 
-    <div id="mainContent" class="max-w-md mx-auto relative z-0">
+    <!-- Main Content -->
+    <div id="mainContent" class="max-w-md mx-auto px-4 relative z-0">
         <div class="text-center mb-12 scroll-reveal">
+            <div class="mb-6">
+              
+            </div>
             <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-2 tracking-wide">Semoga Hari Sebi Selalu Baik</h1>
             <p class="font-poppins text-gray-600 text-lg">-----------</p>
         </div>
@@ -201,18 +208,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Get actual viewport height for mobile
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-            // Update on resize
-            window.addEventListener('resize', () => {
-                vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-            });
-
             const splitContainer = document.getElementById('splitContainer');
             const mainContent = document.getElementById('mainContent');
+
+            // Fix for mobile viewport height
+            function setVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            setVH();
+            window.addEventListener('resize', setVH);
 
             // Add split-active class after delay
             setTimeout(() => {
