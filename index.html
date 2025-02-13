@@ -19,12 +19,13 @@
         }
         .split-top {
             top: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            clip-path: polygon(0 0, 100% 0, 100% 55%, 0 45%);
             background: linear-gradient(135deg, #fce7f3 0%, #ffffff 100%);
         }
         .split-bottom {
             bottom: 0;
-            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            clip-path: polygon(0 45%, 100% 55%, 100% 100%, 0 100%);
+            
             background: linear-gradient(315deg, #fce7f3 0%, #ffffff 100%);
         }
         .split-active .split-top {
@@ -94,7 +95,8 @@
     <!-- Split Screen Animation -->
     <div id="splitContainer">
         <!-- Split Screens -->
-        <div class="split-screen split-top flex items-center justify-center">
+        <div class="split-screen split-bottom min-h-[50vh] flex items-center justify-center">
+
             <!-- Kuromi Top Left & Right -->
             <img src="assets/kuromi-gif2.gif" alt="Kuromi" class="kuromi-decoration kuromi-top-left object-contain">
             <img src="assets/Kuromi-2.png" alt="Kuromi" class="kuromi-decoration kuromi-top-right object-contain">
@@ -104,7 +106,7 @@
                 <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
             </div>
         </div>
-        <div class="split-screen split-bottom flex items-center justify-center">
+        <div class="split-screen split-bottom min-h-[50vh] flex items-center justify-center">
             <div class="welcome-text text-center">
                 <h1 class="font-playfair text-4xl font-bold text-gray-800 mb-2">Selamat Datang Sebrina</h1>
                 <p class="font-poppins text-pink-400">Ada Pesan Untukmu</p>
