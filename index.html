@@ -187,58 +187,204 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 bg-white/5">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-16 gradient-text text-center" data-aos="fade-up">Projects</h2>
-            <div class="relative">
-                <div class="overflow-hidden w-full max-w-5xl mx-auto">
-                    <div class="flex transition-transform duration-500" id="slider">
-                        <!-- Project 1 -->
-                        <div class="min-w-full project-card" data-aos="zoom-in-up">
-                            <div class="flex flex-col sm:flex-row items-center gap-6 p-4">
-                                <div class="project-image w-full sm:w-1/2">
-                                    <img src="assets/pundisales.png" alt="PundiSalesTrack Screenshot" 
-                                        class="w-full h-auto rounded-lg">
+    <section id="projects" class="py-32 relative bg-white/5">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-16 gradient-text" data-aos="fade-up">Projects</h2>
+        
+        <div class="relative max-w-6xl mx-auto">
+            <!-- Slider Container -->
+            <div class="overflow-hidden" id="slider-container">
+                <div class="flex transition-transform duration-500 gap-8" id="slider">
+                    <!-- Project 1 -->
+                    <div class="w-full flex-shrink-0 px-4 " data-aos="zoom-in-down">
+                        <div class="flex flex-col sm:flex-row gap-8 items-center">
+                            <div class="w-full sm:w-1/2">
+                                <div class="rounded-lg h-[400px] flex items-center justify-center">
+                                    <img src="assets/pundisales.png" alt="Project 1" class="max-w-full max-h-full object-contain rounded-lg">
                                 </div>
-                                <div class="project-content w-full sm:w-1/2">
-                                    <h3 class="text-2xl font-bold mb-2">PundiSalesTrack</h3>
-                                    <p class="text-gray-400 mb-4">
-                                        PundiSalesTrack is a sales tracking system designed to help businesses manage their sales data efficiently. It provides a user-friendly interface for data entry and reporting.
-                                    </p>
-                                    <a href="https://pundisalestrack.my.id" 
-                                        class="inline-block bg-white text-black px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition">
-                                        Visit Project
-                                    </a>
+                            </div>
+                            <div class="w-full sm:w-1/2 text-center sm:text-left">
+                                <h3 class="text-2xl font-bold mb-4">PundiSalesTrack System</h3>
+                                <p class="text-gray-300 mb-6">A comprehensive sales tracking system built with Laravel and MySQL. Features include real-time analytics, inventory management, and automated reporting.</p>
+                                <div class="flex flex-wrap gap-3 justify-center sm:justify-start">
+                                    <span class="px-3 py-1 bg-white/10 rounded">Laravel</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">MySQL</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">Tailwind CSS</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="min-w-full project-card" data-aos="zoom-in-up">
-                            <div class="flex flex-col sm:flex-row items-center gap-6 p-4">
-                                <div class="project-image w-full sm:w-1/2">
-                                    <img src="assets/pundisales.png" alt="PundiSalesTrack Screenshot" 
-                                        class="w-full h-auto rounded-lg">
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="flex flex-col sm:flex-row gap-8 items-center">
+                            <div class="w-full sm:w-1/2">
+                                <div class="rounded-lg h-[400px] flex items-center justify-center">
+                                    <img src="assets/pundisales.png" alt="Project 2" class="max-w-full max-h-full object-contain rounded-lg">
                                 </div>
-                                <div class="project-content w-full sm:w-1/2">
-                                    <h3 class="text-2xl font-bold mb-2">PundiSalesTrack</h3>
-                                    <p class="text-gray-400 mb-4">
-                                        PundiSalesTrack is a sales tracking system designed to help businesses manage their sales data efficiently. It provides a user-friendly interface for data entry and reporting.
-                                    </p>
-                                    <a href="https://pundisalestrack.my.id" 
-                                        class="inline-block bg-white text-black px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition">
-                                        Visit Project
-                                    </a>
+                            </div>
+                            <div class="w-full sm:w-1/2 text-center sm:text-left">
+                                <h3 class="text-2xl font-bold mb-4">E-Commerce Platform</h3>
+                                <p class="text-gray-300 mb-6">A modern e-commerce platform with advanced features including user authentication, product management, and secure payment integration.</p>
+                                <div class="flex flex-wrap gap-3 justify-center sm:justify-start">
+                                    <span class="px-3 py-1 bg-white/10 rounded">PHP</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">JavaScript</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="flex flex-col sm:flex-row gap-8 items-center">
+                            <div class="w-full sm:w-1/2">
+                                <div class="rounded-lg h-[400px] flex items-center justify-center">
+                                    <img src="assets/pundisales.png" alt="Project 3" class="max-w-full max-h-full object-contain rounded-lg">
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-1/2 text-center sm:text-left">
+                                <h3 class="text-2xl font-bold mb-4">Task Management App</h3>
+                                <p class="text-gray-300 mb-6">A collaborative task management application with real-time updates, task assignment, and progress tracking features.</p>
+                                <div class="flex flex-wrap gap-3 justify-center sm:justify-start">
+                                    <span class="px-3 py-1 bg-white/10 rounded">Laravel</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">Vue.js</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded">PostgreSQL</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">❮</button>
-                <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">❯</button>
+
+                <!-- Navigation Buttons -->
+                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all" id="prev-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all" id="next-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Dots Indicators -->
+                <div class="flex justify-center mt-8 gap-2" id="dots-container">
+                    <button class="w-3 h-3 rounded-full bg-white/50 transition-all" data-index="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/20 transition-all" data-index="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/20 transition-all" data-index="2"></button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('slider');
+            const slides = slider.children;
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const dots = document.querySelectorAll('#dots-container button');
+            
+            let currentSlide = 0;
+            let autoSlideInterval;
+            const totalSlides = slides.length;
+        
+            function updateSlider() {
+                // Ambil lebar slide pertama (asumsi semua slide memiliki lebar yang sama)
+                const slideElement = slides[0];
+                const slideWidth = slideElement.offsetWidth;
+                
+                // Dapatkan nilai gap dari slider (jika menggunakan properti gap)
+                const sliderStyle = window.getComputedStyle(slider);
+                let gapWidth = parseFloat(sliderStyle.gap) || 0;
+                
+                // Hitung offset dalam piksel berdasarkan slideWidth dan gapWidth
+                const offset = currentSlide * (slideWidth + gapWidth);
+                slider.style.transform = `translateX(-${offset}px)`;
+        
+                // Perbarui indikator dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-white/50', index === currentSlide);
+                    dot.classList.toggle('bg-white/20', index !== currentSlide);
+                });
+            }
+        
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }
+        
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+        
+            // Event listener untuk tombol next dan previous
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+        
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+        
+            // Event listener untuk navigasi dot
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                    resetAutoSlide();
+                });
+            });
+        
+            // Fungsi untuk auto slide
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000); // ganti slide setiap 5 detik
+            }
+        
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+        
+            // Dukungan swipe/touch
+            let touchStartX = 0;
+            let touchEndX = 0;
+        
+            slider.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+        
+            slider.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const difference = touchStartX - touchEndX;
+        
+                if (Math.abs(difference) > swipeThreshold) {
+                    if (difference > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoSlide();
+                }
+            }
+        
+            // Mulai auto slide
+            startAutoSlide();
+        });
+        </script>
+        
+</section>
+
+   
     <!-- Work Experience -->
     <section id="work" class="py-32 bg-white/5">
         <div class="container mx-auto px-6">
@@ -359,36 +505,6 @@
                     }
                 });
             });
-    
-            // Separate slider functionality
-            const slider = document.getElementById('slider');
-            const nextButton = document.getElementById('next');
-            const prevButton = document.getElementById('prev');
-            let currentIndex = 0;
-            const totalSlides = slider.children.length;
-    
-            function updateSlider() {
-                const offset = -currentIndex * 100;
-                slider.style.transform = `translateX(${offset}%)`;
-            }
-    
-            nextButton?.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateSlider();
-            });
-    
-            prevButton?.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateSlider();
-            });
-    
-            // Auto slide with check for slider existence
-            if (slider && totalSlides > 1) {
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateSlider();
-                }, 5000);
-            }
         });
     </script>
 </body>
