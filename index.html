@@ -277,110 +277,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.getElementById('slider');
-            const slides = slider.children;
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const dots = document.querySelectorAll('#dots-container button');
-            
-            let currentSlide = 0;
-            let autoSlideInterval;
-            const totalSlides = slides.length;
-        
-            function updateSlider() {
-                // Ambil lebar slide pertama (asumsi semua slide memiliki lebar yang sama)
-                const slideElement = slides[0];
-                const slideWidth = slideElement.offsetWidth;
-                
-                // Dapatkan nilai gap dari slider (jika menggunakan properti gap)
-                const sliderStyle = window.getComputedStyle(slider);
-                let gapWidth = parseFloat(sliderStyle.gap) || 0;
-                
-                // Hitung offset dalam piksel berdasarkan slideWidth dan gapWidth
-                const offset = currentSlide * (slideWidth + gapWidth);
-                slider.style.transform = `translateX(-${offset}px)`;
-        
-                // Perbarui indikator dot
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('bg-white/50', index === currentSlide);
-                    dot.classList.toggle('bg-white/20', index !== currentSlide);
-                });
-            }
-        
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlider();
-            }
-        
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateSlider();
-            }
-        
-            // Event listener untuk tombol next dan previous
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-        
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoSlide();
-            });
-        
-            // Event listener untuk navigasi dot
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentSlide = index;
-                    updateSlider();
-                    resetAutoSlide();
-                });
-            });
-        
-            // Fungsi untuk auto slide
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(nextSlide, 5000); // ganti slide setiap 5 detik
-            }
-        
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
-            }
-        
-            // Dukungan swipe/touch
-            let touchStartX = 0;
-            let touchEndX = 0;
-        
-            slider.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-        
-            slider.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-        
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const difference = touchStartX - touchEndX;
-        
-                if (Math.abs(difference) > swipeThreshold) {
-                    if (difference > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                    resetAutoSlide();
-                }
-            }
-        
-            // Mulai auto slide
-            startAutoSlide();
-        });
-        </script>
         
 </section>
 
@@ -505,6 +401,107 @@
                     }
                 });
             });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('slider');
+            const slides = slider.children;
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const dots = document.querySelectorAll('#dots-container button');
+            
+            let currentSlide = 0;
+            let autoSlideInterval;
+            const totalSlides = slides.length;
+        
+            function updateSlider() {
+                
+                const slideElement = slides[0];
+                const slideWidth = slideElement.offsetWidth;
+                
+              
+                const sliderStyle = window.getComputedStyle(slider);
+                let gapWidth = parseFloat(sliderStyle.gap) || 0;
+               
+                const offset = currentSlide * (slideWidth + gapWidth);
+                slider.style.transform = `translateX(-${offset}px)`;
+        
+           
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('bg-white/50', index === currentSlide);
+                    dot.classList.toggle('bg-white/20', index !== currentSlide);
+                });
+            }
+        
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }
+        
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+        
+           
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+        
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+        
+            // Event listener untuk navigasi dot
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                    resetAutoSlide();
+                });
+            });
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000); 
+            }
+        
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+        
+           
+            let touchStartX = 0;
+            let touchEndX = 0;
+        
+            slider.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+        
+            slider.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const difference = touchStartX - touchEndX;
+        
+                if (Math.abs(difference) > swipeThreshold) {
+                    if (difference > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoSlide();
+                }
+            }
+        
+            
+            startAutoSlide();
         });
     </script>
 </body>
